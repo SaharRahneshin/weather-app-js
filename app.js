@@ -7,6 +7,7 @@ const weatherContainer = document.getElementById("weather");
 const forecastContainer = document.getElementById("forecast");
 const locationIcon = document.getElementById("location");
 const modalButton = document.getElementById("modal-button");
+const titleForcast = document.querySelector (".title");
 
 const positionCallback = async (position) => {
   const { latitude, longitude } = position.coords;
@@ -22,6 +23,7 @@ const errorCallback = (error) => {
 const locationHandler = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(positionCallback, errorCallback);
+    titleForcast.style.display = "flex"
   } else {
     showModal("Your browser error not support geolocation!");
   }
